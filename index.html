@@ -211,17 +211,19 @@ body {
 
 $(".message").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
 	console.log("I Like You");
-	if ($(".message").hasClass("closeNor"))
+	if ($(".message").hasClass("closeNor")) {
 		$(".message").addClass("closed");
+	}
 	$(".message").removeClass("openNor").removeClass("closeNor").addClass("no-anim");
 });
 
 $(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
 	console.log("I Like You");
-	if (!$(".heart").hasClass("closeHer"))
+	if (!$(".heart").hasClass("closeHer")) {
 		$(".heart").addClass("openedHer").addClass("beating");
-	else
+	} else {
 		$(".heart").addClass("no-anim").removeClass("beating");
+	}
 	$(".heart").removeClass("openHer").removeClass("closeHer");
 });
     </script>
