@@ -1,8 +1,10 @@
-<html> 
- <head>
-   <link rel="stylesheet" type="text/css" href="style.css">
- <style>
-  h1,
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Message</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        h1,
 p {
 	font-family: 'Hind', sans-serif;
 }
@@ -168,55 +170,61 @@ body {
 	top: 85%;
 	transform: translate(-50%, 0);
 }
- </style>
- </head> 
- <body> 
-  <div class="container"> <label> 
-    <div class="heart"> 
-     <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg"> 
-    </div> <input id="messageState" type="checkbox" style="display:none"> </label> 
-   <div class="message"> 
-    <h1>Untuk Pikaaaaaa⚡</h1> 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label>
+            <div class="heart">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg">
+            </div>
+            <input id="messageState" type="checkbox" style="display:none">
+        </label>
+        <div class="message closed">
+                <h1>Untuk Pikaaaaaa⚡</h1> 
     <p>Alooo, aku cuma mau bilang aku sayang banget sama kamu, i know kita emang gaktau kita hubungan seperti apaa but bisa gak si kamu jangan pergi?Hehe Gamau saja aku kehilangan kamu, aku tau manusia itu juga gampang berubah ntah itu dari sikap maupun perasaan, inget walaupun kita gak tau hubungan kita seperti apa kalo kamu cape inget ada aku disini yang selalu siap dengerin keluh kesah kamu aku bisa jadi sandaran buat kamu ya walaupun kita gatau hubungann seperti apa yang kita jalankan ini....
      <br><br>But aku juga gak mau maksa kamu buat jadi milik aku, I do not know either,ntah kita jodoh atau tidak,itu tidak ada yg tau,hehe....and kamu tau ga? saat kamu deket sama orang lain aku cemburu hehew apalagi pas kamu ngomongin cowo:v ( Lupain aja yg ini ), gak tau kenapa gak suka aja kamu deket deket sama orang lain selain aku, but aku tau aku gak berhak juga larang" soal ini ke kamu tapi aku emang kalau udah sayang sama seseorang bakalan ngelarang" gajelas tapi aku bakal maksa ngelarang kamu ke hal yang gak baik buat kamu sendiri, aku senang karena aku udah deket sama kamu.
       <br><br>aku juga berharap kita bisa terusin sampai hubungan kita..... Qobiltu Nikahaha:)
       <br><br>Eaaa,Sekian Dari Aa untuk Pikaaa
       <br><br>Terimakasih 😁
    </p> 
-   </div> 
-  </div>
-   <script>
-    $("#messageState").on("change", (x) => {
-  $(".message").removeClass("openNor").removeClass("closeNor");
-  if ($("#messageState").is(":checked")) {
-    $(".message").removeClass("closed").removeClass("no-anim").addClass("openNor");
-    $(".heart").removeClass("closeHer").removeClass("openedHer").addClass("openHer");
-    $(".container").stop().animate({"backgroundColor": "#f48fb1"}, 2000);
-    console.log("I Like You");
-  } else {
-    $(".message").removeClass("no-anim").addClass("closeNor");
-    $(".heart").removeClass("openHer").removeClass("openedHer").addClass("closeHer");
-    $(".container").stop().animate({"backgroundColor": "#fce4ec"}, 2000);
-    console.log("01010");
-  }
-});
+        </div>
+    </div>
 
-$(".message").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-  console.log("I Like You");
-  if ($(".message").hasClass("closeNor"))
-    $(".message").addClass("closed");
-  $(".message").removeClass("openNor").removeClass("closeNor").addClass("no-anim");
-});
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $("#messageState").on("change", function() {
+                $(".message").toggleClass("openNor closeNor");
+                if ($("#messageState").is(":checked")) {
+                    $(".message").removeClass("closed no-anim").addClass("openNor");
+                    $(".heart").removeClass("closeHer openedHer").addClass("openHer");
+                    $(".container").stop().animate({"backgroundColor": "#f48fb1"}, 2000);
+                    console.log("I Like You");
+                } else {
+                    $(".message").removeClass("no-anim").addClass("closeNor");
+                    $(".heart").removeClass("openHer openedHer").addClass("closeHer");
+                    $(".container").stop().animate({"backgroundColor": "#fce4ec"}, 2000);
+                    console.log("01010");
+                }
+            });
 
-$(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-  console.log("I Like You");
-  if (!$(".heart").hasClass("closeHer"))
-    $(".heart").addClass("openedHer").addClass("beating");
-  else
-    $(".heart").addClass("no-anim").removeClass("beating");
-  $(".heart").removeClass("openHer").removeClass("closeHer");
-});
-   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
- </body>
+            $(".message").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+                console.log("I Like You");
+                if ($(".message").hasClass("closeNor"))
+                    $(".message").addClass("closed");
+                $(".message").removeClass("openNor closeNor").addClass("no-anim");
+            });
+
+            $(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+                console.log("I Like You");
+                if (!$(".heart").hasClass("closeHer"))
+                    $(".heart").addClass("openedHer beating");
+                else
+                    $(".heart").addClass("no-anim").removeClass("beating");
+                $(".heart").removeClass("openHer closeHer");
+            });
+        });
+    </script>
+</body>
 </html>
