@@ -34,7 +34,7 @@ body {
 	top: 50%;
 	text-align: center;
 	transform: translate(-50%, -50%);
-	transiton: transform 2s;
+	transition: transform 2s; /* corrected */
 	z-index: 1;
 }
 
@@ -70,8 +70,6 @@ body {
 	animation-iteration-count: infinite;
 	animation-play-state: running;
 }
-
-#messageState {}
 
 @keyframes beat {
 	0% {
@@ -110,7 +108,7 @@ body {
 
 @keyframes heartMove {
 	0% {
-		top: 50%
+		top: 50%;
 	}
 	100% {
 		top: 85%;
@@ -193,8 +191,8 @@ body {
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        jQuery(document).ready(function($) {
-            $("#messageState").on("change", (x) => {
+        $(document).ready(function() { /* changed to use $ instead of jQuery */
+            $("#messageState").on("change", function () {
 	$(".message").removeClass("openNor").removeClass("closeNor");
 	if ($("#messageState").is(":checked")) {
 		$(".message").removeClass("closed").removeClass("no-anim").addClass("openNor");
